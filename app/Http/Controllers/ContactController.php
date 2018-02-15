@@ -33,8 +33,15 @@ class ContactController extends Controller
         return 'success';
     }
 
-    public function search_by_email($search = '') {
-        return Contact::where('email', 'LIKE', '%' . $search . '%')->get();
+    public function search_by_all($search = '') {
+        return Contact::where('email', 'LIKE', '%' . $search . '%')
+                            ->orWhere('name', 'LIKE', '%' . $search . '%')
+                            ->orWhere('phone', 'LIKE', '%' . $search . '%')
+                            ->get();
+    }
+
+    public function search_by_id($id) {
+        return Contact::find($id);
     }
 
 }

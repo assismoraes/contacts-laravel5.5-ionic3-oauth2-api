@@ -21,6 +21,7 @@ Route::group(['prefix' => 'contacts', 'middleware' => ['cors']], function() {
     Route::post('create_contact', 'ContactController@create_contact');
     Route::put('edit_contact', 'ContactController@edit_contact');
     Route::delete('delete_contact/{id}', 'ContactController@delete_contact');
-    Route::get('show_all_contacts', 'ContactController@search_by_email');
-    Route::get('search_by_email/{email?}', 'ContactController@search_by_email');
+    Route::get('show_all_contacts', 'ContactController@search_by_all');
+    Route::get('search_by_all/{data?}', 'ContactController@search_by_all');
+    Route::get('search_by_id/{id}', 'ContactController@search_by_id');
 });
