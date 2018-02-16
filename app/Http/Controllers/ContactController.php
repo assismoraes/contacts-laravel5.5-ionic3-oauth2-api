@@ -37,6 +37,7 @@ class ContactController extends Controller
         return Contact::where('email', 'LIKE', '%' . $search . '%')
                             ->orWhere('name', 'LIKE', '%' . $search . '%')
                             ->orWhere('phone', 'LIKE', '%' . $search . '%')
+                            ->orderBy('name')
                             ->get();
     }
 
